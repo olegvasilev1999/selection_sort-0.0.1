@@ -39,7 +39,7 @@ int main() {
 		}
 	}
 	else {
-		cout << "An error has occured while reading numbers from line";
+		cout << "An error has occured while reading input data.";
 	}
 
 	cin.get();
