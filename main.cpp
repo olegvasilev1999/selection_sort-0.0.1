@@ -5,7 +5,7 @@
 
 using namespace std;
 
-bool read_numbers(int & n,int * array)
+bool read_numbers(int & n, int * array)
 {
 	string string;
 	getline(cin, string);
@@ -16,30 +16,33 @@ bool read_numbers(int & n,int * array)
 			success = false;
 			break;
 		}
-		
 	}
-	
 	return success;
 }
 
 int main() {
-	int n = 5 ;
+	int n = 5;
 	int * array = new int;
 
-	if (read_numbers(n, array)) {
-		for (int i = 0; i < n; i++) {
-			for (int j = i+1; j < n; j++) {
-				if (array[i] > array[j]) {
-					swap(array[i], array[j]);
+	string str;
+	getline(cin, str);
+	istringstream stream(str);
+	if (stream >> n) {
+		if (read_numbers(n, array)) {
+			for (int i = 0; i < n; i++) {
+				for (int j = i + 1; j < n; j++) {
+					if (array[i] > array[j]) {
+						swap(array[i], array[j]);
+					}
 				}
 			}
+			for (int i = 0; i < n; i++) {
+				cout << array[i] << " ";
+			}
 		}
-		for (int i = 0; i < n; i++) {
-			cout << array[i] << " ";
+		else {
+			cout << "An error has occured while reading input data.";
 		}
-	}
-	else {
-		cout << "An error has occured while reading input data.";
 	}
 
 	cin.get();
