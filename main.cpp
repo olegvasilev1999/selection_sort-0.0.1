@@ -30,13 +30,17 @@ int main() {
 	istringstream stream(str);
 	if (stream >> n) {
 		if (read_numbers(n, array)) {
-			for (int i = 0; i < n-1; i++) {
+			int min_i;
+			for (int i = 0; i < n; i++) {
 				min = array[i];
-				for (int j = i + 1; j < n; j++) {
-					if (array[j] < min) {min = array[j];
-						swap(array[i], array[j]);
+				min_i = i;
+				for (int j = i; j < n; j++) {
+					if (array[j] < min) {
+						min = array[j];
+						min_i = j;
 					}
 				}
+				swap(array[i], array[min_i]);
 			}
 			for (int i = 0; i < n; i++) {
 				cout << array[i] << " ";
