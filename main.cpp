@@ -23,6 +23,7 @@ bool read_numbers(int & n, int * array)
 int main() {
 	int n = 5;
 	int * array = new int;
+	int min;
 
 	string str;
 	getline(cin, str);
@@ -30,8 +31,10 @@ int main() {
 	if (stream >> n) {
 		if (read_numbers(n, array)) {
 			for (int i = 0; i < n; i++) {
+				min = array[i];
 				for (int j = i + 1; j < n; j++) {
-					if (array[i] > array[j]) {
+					if (array[j] < min) min = array[j];
+					if (array[i] > min) {
 						swap(array[i], array[j]);
 					}
 				}
