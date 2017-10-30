@@ -21,7 +21,7 @@ bool read_numbers(int & n, int * array)
 }
 
 int main() {
-	int n;
+	int n = 5;
 	int * array = new int;
 	int min;
 
@@ -30,11 +30,10 @@ int main() {
 	istringstream stream(str);
 	if (stream >> n) {
 		if (read_numbers(n, array)) {
-			for (int i = 0; i < n; i++) {
+			for (int i = 0; i < n-1; i++) {
 				min = array[i];
 				for (int j = i + 1; j < n; j++) {
-					if (array[j] < min) min = array[j];
-					if (array[i] > min) {
+					if (array[j] < min) {min = array[j];
 						swap(array[i], array[j]);
 					}
 				}
