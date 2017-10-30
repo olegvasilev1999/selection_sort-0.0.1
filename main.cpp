@@ -21,7 +21,7 @@ bool read_numbers(int & n, int * array)
 }
 
 int main() {
-	int n = 5;
+	int n;
 	int * array = new int;
 	int min;
 
